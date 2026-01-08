@@ -17,6 +17,10 @@ public class Utile {
 
     }
 
+    /**
+     * @param dateObj
+     * @return Date String to the format 'day/month/year'
+     */
     public static String formatDate(Date dateObj) {
 
         String date = (dateObj.getDate() <= 9) ? "0" + dateObj.getDate() : "" + dateObj.getDate();
