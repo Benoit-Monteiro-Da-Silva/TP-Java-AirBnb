@@ -2,6 +2,7 @@ package benoitmonteiro.javabnb.reservations;
 
 import java.util.Date;
 import benoitmonteiro.javabnb.logements.Logement;
+import benoitmonteiro.javabnb.outils.Utile;
 
 
 public class Sejour {
@@ -21,12 +22,7 @@ public class Sejour {
     public void afficher() {
         logement.afficher();
 
-        String date = (dateArrivee.getDate() <= 9) ? "0" + dateArrivee.getDate() : "" + dateArrivee.getDate();
-        String month = (dateArrivee.getMonth() <= 9) ? "0" + dateArrivee.getMonth() : "" + dateArrivee.getMonth();
-        String year = "" + dateArrivee.getYear();
-        String dateFormatee = date + "/" + month + "/" + year;
-
-        System.out.println("La date d'arrivée est le " + dateFormatee + " pour " + nbNuits + " nuits.");
+        System.out.println("La date d'arrivée est le " + Utile.formatDate(dateArrivee) + " pour " + nbNuits + " nuits.");
         System.out.println("Le prix de ce séjour est de " + tarif() + "€.");  
     }
 
