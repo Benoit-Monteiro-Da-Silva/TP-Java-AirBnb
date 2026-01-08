@@ -7,10 +7,10 @@ import benoitmonteiro.javabnb.outils.Utile;
 
 public class Sejour {
 
-    private Date dateArrivee;
-    private int nbNuits;
-    private Logement logement;
-    private int nbVoyageurs;
+    private final Date dateArrivee;
+    private final int nbNuits;
+    private final Logement logement;
+    private final int nbVoyageurs;
 
     public Sejour(Date paramDateArrivee, int paramNbNuits, Logement paraLogement, int paramNbVoyageurs) {
         dateArrivee = paramDateArrivee;

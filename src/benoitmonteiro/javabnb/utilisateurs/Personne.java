@@ -2,9 +2,9 @@ package benoitmonteiro.javabnb.utilisateurs;
 
 public class Personne {
     
-    private String prenom;
-    private String nom;
-    private int age;
+    private final String prenom;
+    private final String nom;
+    private final int age;
 
     public Personne(String paramPrenom, String paramNom, int paramAge) {
         prenom = paramPrenom;
@@ -13,7 +13,7 @@ public class Personne {
     }
 
     public void afficher() {
-        System.out.println(prenom + " " + nom + " (" + age + " ans)");
+        System.out.print(prenom + " " + nom + " (" + age + " ans)");
     }
 
 }

@@ -1,17 +1,17 @@
 package benoitmonteiro.javabnb.logements;
 
-import benoitmonteiro.javabnb.utilisateurs.Personne;
+import benoitmonteiro.javabnb.utilisateurs.Hote;
 
 
 public class Logement {
     
-    private Personne hote;
-    private int tarifParNuit;
-    private String adresse;
-    private int superficie;
-    private int nbVoyageursMax;
+    private final Hote hote;
+    private final int tarifParNuit;
+    private final String adresse;
+    private final int superficie;
+    private final int nbVoyageursMax;
 
-    public Logement(Personne paramHote, int paramTarifParNuit, String paramAdresse, int paramSuperficie, int paramNbVoyageursMax) {
+    public Logement(Hote paramHote, int paramTarifParNuit, String paramAdresse, int paramSuperficie, int paramNbVoyageursMax) {
         hote = paramHote;
         tarifParNuit = paramTarifParNuit;
         adresse = paramAdresse;
@@ -19,9 +19,31 @@ public class Logement {
         nbVoyageursMax = paramNbVoyageursMax;
     }
 
+
+    //Getters
+
     public int getTarifParNuit() {
         return tarifParNuit;
     }
+
+    public Hote getHote() {
+        return hote;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public int getSuperficie() {
+        return superficie;
+    }
+
+    public int getNbVoyageursMax() {
+        return nbVoyageursMax;
+    }
+
+    
+    //Other methods
 
     public void afficher() {
         hote.afficher();
