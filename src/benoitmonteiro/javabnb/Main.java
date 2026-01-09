@@ -5,6 +5,7 @@ import benoitmonteiro.javabnb.logements.Maison;
 import benoitmonteiro.javabnb.outils.Utile;
 import benoitmonteiro.javabnb.utilisateurs.Voyageur;
 import benoitmonteiro.javabnb.utilisateurs.Hote;
+import benoitmonteiro.javabnb.reservations.Reservation;
 import benoitmonteiro.javabnb.reservations.Sejour;
 
 
@@ -39,7 +40,9 @@ public class Main {
             chezMoi, 
             2);
 
-        lesVacances.afficher();
+        Reservation lesVacancesReservees = new Reservation(lesVacances, alain);
+
+        lesVacancesReservees.afficher();
 
     }
 

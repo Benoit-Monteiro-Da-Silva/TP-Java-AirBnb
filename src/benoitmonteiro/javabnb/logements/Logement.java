@@ -3,7 +3,7 @@ package benoitmonteiro.javabnb.logements;
 import benoitmonteiro.javabnb.utilisateurs.Hote;
 
 
-public class Logement {
+public abstract class Logement {// 'abstract' for a class means this class can't be instanced. It is also necessary to define abstract methods.
     
     private final Hote hote;
     private final int tarifParNuit;
@@ -42,13 +42,9 @@ public class Logement {
         return nbVoyageursMax;
     }
 
-    
+
     //Other methods
 
-    public void afficher() {
-        hote.afficher();
-        System.out.println("Le logement est situé " + adresse + ".");
-        System.out.println("Superficie : " + superficie + "m2");
-    }
+    public abstract void afficher(); // 'abstract' for a method means that Children-classes are forced to define this method their own way.
 
 }

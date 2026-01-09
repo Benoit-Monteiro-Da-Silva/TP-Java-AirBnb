@@ -5,7 +5,7 @@ import benoitmonteiro.javabnb.logements.Logement;
 import benoitmonteiro.javabnb.outils.Utile;
 
 
-public class Sejour {
+public class Sejour implements Reservable {
 
     private final Date dateArrivee;
     private final int nbNuits;
@@ -19,6 +19,10 @@ public class Sejour {
         nbVoyageurs = paramNbVoyageurs;
     }
 
+    private int tarif() {
+        return logement.getTarifParNuit() * nbNuits;
+    }
+
     public void afficher() {
         logement.afficher();
 
@@ -26,8 +30,16 @@ public class Sejour {
         System.out.println("Le prix de ce séjour est de " + tarif() + "€.");  
     }
 
-    private int tarif() {
-        return logement.getTarifParNuit() * nbNuits;
+    public boolean aUneDateArriveeCorrect() {
+        return dateArrivee.getTime() > new Date().getTime() ? true : false;
+    }
+
+    public boolean aUnNombreDeNuitsCorrect() {
+        return (nbNuits >= 1 && nbNuits <= 31) ? true : false; 
+    }
+
+    public boolean aUnNombreDeVoyageursCorrect() {
+        return (nbVoyageurs <= logement.getNbVoyageursMax()) ? true : false;
     }
 
 }
