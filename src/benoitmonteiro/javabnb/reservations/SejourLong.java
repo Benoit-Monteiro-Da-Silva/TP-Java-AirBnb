@@ -7,13 +7,13 @@ public class SejourLong extends Sejour {
 
     private final int prix;
     private final int promotion;
-    private final int PROMOTION_EN_POURCENTAGE = 20;
+    private static final int PROMOTION_EN_POURCENTAGE = 20;
 
     public SejourLong(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {
         super(paramDateArrivee, paramNbNuits, paramLogement, paramNbVoyageurs);
 
-        promotion = (int) (this.getLogement().getTarifParNuit() * this.getNbNuits() * (PROMOTION_EN_POURCENTAGE / 100));
-        prix = (int) (this.getLogement().getTarifParNuit() * this.getNbNuits() * (1 - PROMOTION_EN_POURCENTAGE / 100));
+        promotion = this.getLogement().getTarifParNuit() * this.getNbNuits() * PROMOTION_EN_POURCENTAGE / 100;
+        prix = this.getLogement().getTarifParNuit() * this.getNbNuits() - promotion;
     }
 
     @Override
