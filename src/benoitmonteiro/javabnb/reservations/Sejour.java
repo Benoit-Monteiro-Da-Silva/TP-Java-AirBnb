@@ -5,29 +5,45 @@ import benoitmonteiro.javabnb.logements.Logement;
 import benoitmonteiro.javabnb.outils.Utile;
 
 
-public class Sejour implements Reservable {
+public abstract class Sejour implements Reservable {
 
     private final Date dateArrivee;
     private final int nbNuits;
     private final Logement logement;
     private final int nbVoyageurs;
 
-    public Sejour(Date paramDateArrivee, int paramNbNuits, Logement paraLogement, int paramNbVoyageurs) {
+    public Sejour(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {
         dateArrivee = paramDateArrivee;
         nbNuits = paramNbNuits;
-        logement = paraLogement;
+        logement = paramLogement;
         nbVoyageurs = paramNbVoyageurs;
     }
 
-    private int tarif() {
-        return logement.getTarifParNuit() * nbNuits;
+
+    //Getters
+
+    public Date getDateArrivee() {
+        return dateArrivee;
     }
+
+    public int getNbNuits() {
+        return nbNuits;
+    }
+
+    public Logement getLogement() {
+        return logement;
+    }
+
+    public int getNbVoyageurs() {
+        return nbVoyageurs;
+    }
+
+
+    //Interface methods
 
     public void afficher() {
         logement.afficher();
-
         System.out.println("La date d'arrivée est le " + Utile.formatDate(dateArrivee) + " pour " + nbNuits + " nuits.");
-        System.out.println("Le prix de ce séjour est de " + tarif() + "€.");  
     }
 
     public boolean aUneDateArriveeCorrect() {

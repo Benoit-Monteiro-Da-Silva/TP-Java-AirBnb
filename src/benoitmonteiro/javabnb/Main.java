@@ -6,7 +6,8 @@ import benoitmonteiro.javabnb.outils.Utile;
 import benoitmonteiro.javabnb.utilisateurs.Voyageur;
 import benoitmonteiro.javabnb.utilisateurs.Hote;
 import benoitmonteiro.javabnb.reservations.Reservation;
-import benoitmonteiro.javabnb.reservations.Sejour;
+import benoitmonteiro.javabnb.reservations.SejourCourt;
+import benoitmonteiro.javabnb.reservations.SejourLong;
 
 
 public class Main {
@@ -34,15 +35,14 @@ public class Main {
             0, 
             4);
 
-        Sejour lesVacances = new Sejour(
-            Utile.createDate(9, 12, 2026), 
-            4, 
-            chezMoi, 
-            2);
+        SejourCourt lesPetitesVacances = new SejourCourt(Utile.createDate(9, 12, 2026), 4, chezLui, 2);
+        SejourLong lesGrandesVacances = new SejourLong(Utile.createDate(25, 8, 2026), 14, chezMoi, 4);
 
-        Reservation lesVacancesReservees = new Reservation(lesVacances, alain);
+        Reservation lesPetitesVacancesReservees = new Reservation(lesPetitesVacances, alain);
+        Reservation lesGrandesVacancesReservees = new Reservation(lesGrandesVacances, alain);
 
-        lesVacancesReservees.afficher();
+        // lesPetitesVacancesReservees.afficher();
+        lesGrandesVacancesReservees.afficher();
 
     }
 
