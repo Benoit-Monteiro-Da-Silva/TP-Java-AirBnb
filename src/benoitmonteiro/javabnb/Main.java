@@ -47,9 +47,14 @@ public class Main {
 
         lesVacances = SejourFactory.creerSejour(dateSejour, nbNuits, nbVoyageurs, logementVacances);
 
-        Reservation lesVacancesReservees = new Reservation(lesVacances, alain);
+        try {
+            Reservation lesVacancesReservees = new Reservation(lesVacances, alain);
+            lesVacancesReservees.afficher();
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            System.out.println("La création de la réservation a échoué.");
+        }
 
-        lesVacancesReservees.afficher();
 
     }
 
