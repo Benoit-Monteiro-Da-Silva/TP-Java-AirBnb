@@ -1,13 +1,15 @@
 package benoitmonteiro.javabnb;
 
-import benoitmonteiro.javabnb.logements.Appartement;
-import benoitmonteiro.javabnb.logements.Maison;
+import java.util.Date;
 import benoitmonteiro.javabnb.outils.Utile;
+import benoitmonteiro.javabnb.logements.Appartement;
+import benoitmonteiro.javabnb.logements.Logement;
+import benoitmonteiro.javabnb.logements.Maison;
 import benoitmonteiro.javabnb.utilisateurs.Voyageur;
 import benoitmonteiro.javabnb.utilisateurs.Hote;
+import benoitmonteiro.javabnb.reservations.Sejour;
+import benoitmonteiro.javabnb.reservations.SejourFactory;
 import benoitmonteiro.javabnb.reservations.Reservation;
-import benoitmonteiro.javabnb.reservations.SejourCourt;
-import benoitmonteiro.javabnb.reservations.SejourLong;
 
 
 public class Main {
@@ -35,14 +37,19 @@ public class Main {
             0, 
             4);
 
-        SejourCourt lesPetitesVacances = new SejourCourt(Utile.createDate(9, 12, 2026), 4, chezLui, 2);
-        SejourLong lesGrandesVacances = new SejourLong(Utile.createDate(25, 8, 2026), 10, chezMoi, 4);
+        
+        //Critères de création d'un séjour
+        Date dateSejour = Utile.createDate(25, 8, 2026);
+        int nbNuits = 10;
+        int nbVoyageurs = 2;
+        Logement logementVacances = chezLui;
+        Sejour lesVacances;
 
-        Reservation lesPetitesVacancesReservees = new Reservation(lesPetitesVacances, alain);
-        Reservation lesGrandesVacancesReservees = new Reservation(lesGrandesVacances, alain);
+        lesVacances = SejourFactory.creerSejour(dateSejour, nbNuits, nbVoyageurs, logementVacances);
 
-        // lesPetitesVacancesReservees.afficher();
-        lesGrandesVacancesReservees.afficher();
+        Reservation lesVacancesReservees = new Reservation(lesVacances, alain);
+
+        lesVacancesReservees.afficher();
 
     }
 
