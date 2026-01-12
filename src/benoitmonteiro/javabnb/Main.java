@@ -36,7 +36,7 @@ public class Main {
             4);
 
         SejourCourt lesPetitesVacances = new SejourCourt(Utile.createDate(9, 12, 2026), 4, chezLui, 2);
-        SejourLong lesGrandesVacances = new SejourLong(Utile.createDate(25, 8, 2026), 14, chezMoi, 4);
+        SejourLong lesGrandesVacances = new SejourLong(Utile.createDate(25, 8, 2026), 10, chezMoi, 4);
 
         Reservation lesPetitesVacancesReservees = new Reservation(lesPetitesVacances, alain);
         Reservation lesGrandesVacancesReservees = new Reservation(lesGrandesVacances, alain);

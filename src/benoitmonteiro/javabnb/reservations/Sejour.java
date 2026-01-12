@@ -11,14 +11,19 @@ public abstract class Sejour implements Reservable {
     private final int nbNuits;
     private final Logement logement;
     private final int nbVoyageurs;
+    protected int prix; //Children have full access to this attribute (read and write)
 
+
+    /**
+     * @implNote Children must override method 'boolean aUnNombreDeNuitsCorrect' and method 'void miseAJourDuPrixDeSejour'
+     */
     public Sejour(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {
         dateArrivee = paramDateArrivee;
         nbNuits = paramNbNuits;
         logement = paramLogement;
         nbVoyageurs = paramNbVoyageurs;
+        miseAJourDuPrixDeSejour();
     }
-
 
     //Getters
 
@@ -41,21 +46,27 @@ public abstract class Sejour implements Reservable {
 
     //Interface methods
 
+    @Override
     public void afficher() {
         logement.afficher();
         System.out.println("La date d'arrivée est le " + Utile.formatDate(dateArrivee) + " pour " + nbNuits + " nuits.");
     }
 
+    @Override
     public boolean aUneDateArriveeCorrect() {
-        return dateArrivee.getTime() > new Date().getTime() ? true : false;
+        Date dateActuelle = new Date();
+        return dateArrivee.after(dateActuelle);
     }
 
-    public boolean aUnNombreDeNuitsCorrect() {
-        return (nbNuits >= 1 && nbNuits <= 31) ? true : false; 
-    }
-
+    @Override
     public boolean aUnNombreDeVoyageursCorrect() {
-        return (nbVoyageurs <= logement.getNbVoyageursMax()) ? true : false;
+        return (nbVoyageurs > 0) && (nbVoyageurs <= logement.getNbVoyageursMax());
     }
+
+
+    //Other methods
+
+    public abstract void miseAJourDuPrixDeSejour();
+
 
 }
