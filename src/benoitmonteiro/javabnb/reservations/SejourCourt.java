@@ -5,7 +5,8 @@ import benoitmonteiro.javabnb.logements.Logement;
 
 public class SejourCourt extends Sejour {
 
-    public SejourCourt(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {
+    //Constructor has 'package' visibility so that 'Main' can't use it but 'SejourFactory' can
+    SejourCourt(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {
         super(paramDateArrivee, paramNbNuits, paramLogement, paramNbVoyageurs);
     }
 
@@ -17,7 +18,7 @@ public class SejourCourt extends Sejour {
 
     @Override
     public boolean aUnNombreDeNuitsCorrect() {
-        return this.getNbNuits() >= 1 && this.getNbNuits() <= 5; 
+        return (this.getNbNuits() >= 1) && (this.getNbNuits() <= 5); 
     }
 
     @Override

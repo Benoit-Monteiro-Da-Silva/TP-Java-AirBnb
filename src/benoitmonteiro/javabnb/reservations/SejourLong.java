@@ -8,7 +8,8 @@ public class SejourLong extends Sejour {
     private int promotion;
     private static final int PROMOTION_EN_POURCENTAGE = 20;
 
-    public SejourLong(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {
+    //Constructor has 'package' visibility so that 'Main' can't use it but 'SejourFactory' can
+    SejourLong(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {
         super(paramDateArrivee, paramNbNuits, paramLogement, paramNbVoyageurs);
     }
 

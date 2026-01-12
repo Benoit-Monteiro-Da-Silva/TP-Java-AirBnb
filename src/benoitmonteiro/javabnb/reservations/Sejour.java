@@ -9,19 +9,21 @@ public abstract class Sejour implements Reservable {
 
     private final Date dateArrivee;
     private final int nbNuits;
-    private final Logement logement;
     private final int nbVoyageurs;
+    private Logement logement;
     protected int prix; //Children have full access to this attribute (read and write)
 
 
     /**
-     * @implNote Children must override method 'boolean aUnNombreDeNuitsCorrect' and method 'void miseAJourDuPrixDeSejour'
+     * @implNote Children must override methods 'boolean aUnNombreDeNuitsCorrect()' and 'void miseAJourDuPrixDeSejour()'.
+     * @implNote 'void miseAJourDuPrixDeSejour' method must update protected attribute 'this.prix'
      */
     public Sejour(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {
         dateArrivee = paramDateArrivee;
         nbNuits = paramNbNuits;
         logement = paramLogement;
         nbVoyageurs = paramNbVoyageurs;
+        
         miseAJourDuPrixDeSejour();
     }
 
@@ -41,6 +43,14 @@ public abstract class Sejour implements Reservable {
 
     public int getNbVoyageurs() {
         return nbVoyageurs;
+    }
+
+
+    //Setters
+
+    public void setLogement(Logement newLogement) {
+        logement = newLogement;
+        miseAJourDuPrixDeSejour();
     }
 
 
