@@ -17,4 +17,17 @@ public class Hote extends Personne {
         System.out.println(" qui s'engage à réponde dans " + delaiString + ".");
     }
 
+    //Methode pour comparer deux hôtes (basée sur la méthode 'super' qui compare deux personnes)
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        if (obj == null || this.getClass() != obj.getClass()) return false; 
+        
+        if (!super.equals(obj)) return false;
+
+        Hote hote = (Hote) obj;
+        return delaiDeReponse == hote.delaiDeReponse;
+    }
+
 }
