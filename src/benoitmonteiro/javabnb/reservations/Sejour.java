@@ -15,7 +15,7 @@ public abstract class Sejour implements Reservable {
 
 
     /**
-     * @implNote Children must override methods 'boolean aUnNombreDeNuitsCorrect()' and 'void miseAJourDuPrixDeSejour()'.
+     * @implNote Children must override interface method 'boolean aUnNombreDeNuitsCorrect()' and method 'void miseAJourDuPrixDeSejour()'.
      * @implNote 'void miseAJourDuPrixDeSejour' method must update protected attribute 'this.prix'
      */
     public Sejour(Date paramDateArrivee, int paramNbNuits, Logement paramLogement, int paramNbVoyageurs) {

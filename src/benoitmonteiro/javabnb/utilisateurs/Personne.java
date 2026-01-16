@@ -1,8 +1,9 @@
 package benoitmonteiro.javabnb.utilisateurs;
 
 import java.util.Objects;
+import benoitmonteiro.javabnb.outils.Comparable;
 
-public class Personne {
+public class Personne implements Comparable {
     
     private final String prenom;
     private final String nom;
@@ -30,6 +31,14 @@ public class Personne {
         return this.age == other.age &&
                 Objects.equals(this.prenom, other.prenom) &&
                 Objects.equals(this.nom, other.nom);
+    }
+
+
+    //Interface methods
+    
+    @Override
+    public int getComparableAttribute() {
+        return age;
     }
 
 }

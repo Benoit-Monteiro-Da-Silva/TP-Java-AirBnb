@@ -30,4 +30,12 @@ public class Hote extends Personne {
         return delaiDeReponse == hote.delaiDeReponse;
     }
 
+
+    //Interface methods
+
+    @Override
+    public int getComparableAttribute() {
+        return delaiDeReponse;
+    }
+
 }

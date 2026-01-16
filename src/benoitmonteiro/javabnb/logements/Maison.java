@@ -28,4 +28,8 @@ public class Maison extends Logement {
         System.out.println("Piscine : " + piscineString);
     }
 
+    public boolean hasPiscine() {
+        return possedePiscine;
+    }
+
 }

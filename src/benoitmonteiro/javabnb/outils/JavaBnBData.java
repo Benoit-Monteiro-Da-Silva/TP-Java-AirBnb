@@ -5,6 +5,7 @@ import benoitmonteiro.javabnb.utilisateurs.Hote;
 import benoitmonteiro.javabnb.logements.Logement;
 
 //Singleton
+
 public class JavaBnBData {
 
     //Unique instance de la classe créée à l'intérieur même de celle-ci
@@ -32,8 +33,7 @@ public class JavaBnBData {
         return instance;
     }
 
-
-    //Autres Getters
+    //Getters des attributs
     public ArrayList<Hote> getHotes() {
         return hotes;
     }

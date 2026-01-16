@@ -1,9 +1,12 @@
 package benoitmonteiro.javabnb.logements;
 
 import benoitmonteiro.javabnb.utilisateurs.Hote;
+import benoitmonteiro.javabnb.outils.Comparable;
 
-
-public abstract class Logement {// 'abstract' for a class means this class can't be instanced. It is also necessary to define abstract methods.
+// 'abstract' for a class means this class can't be instanced. 
+// It is also necessary if we want to define abstract methods, that children are forced to re-define.
+// It also means that the class won't have to define its interface methods anymore, but if it doesn't do it, its children will.
+public abstract class Logement implements Comparable {
     
     private final Hote hote;
     private final int tarifParNuit;
@@ -40,6 +43,14 @@ public abstract class Logement {// 'abstract' for a class means this class can't
 
     public int getNbVoyageursMax() {
         return nbVoyageursMax;
+    }
+
+
+    //Interface methods
+
+    @Override
+    public int getComparableAttribute() {
+        return tarifParNuit;
     }
 
 
