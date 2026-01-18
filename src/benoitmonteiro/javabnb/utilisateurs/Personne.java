@@ -19,10 +19,10 @@ public class Personne implements Comparable {
         System.out.print(prenom + " " + nom + " (" + age + " ans)");
     }
 
-    //Methode pour comparer deux personnes (redéfinition de la méthode 'equals' de la classe Object qui se contente de vérifier les pointeurs mémoires)
+    //Methode pour comparer deux personnes (redéfinition de la méthode 'equals' de la classe Object qui de base se contente de vérifier les pointeurs mémoires)
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
+        if (this == obj) return true; //Globalement ce que fait la méthode de base
 
         if (obj == null || this.getClass() != obj.getClass()) return false;
 

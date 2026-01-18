@@ -1,8 +1,6 @@
 package benoitmonteiro.javabnb.recherches;
 
 import java.util.ArrayList;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 import benoitmonteiro.javabnb.logements.Logement;
 import benoitmonteiro.javabnb.logements.Maison;
@@ -75,18 +73,9 @@ public class Recherche {
 		return result;
 	}
 
-    public ArrayList<Logement> resultat() {
-        
-        return JavaBnBData.getInstance().getLogements()
-            .stream()
-            .filter(logement -> nbVoyageurs <= logement.getNbVoyageursMax())
-            .collect(Collectors.toCollection(ArrayList::new));
-
-    }
-
 
     //Classe interne static (qui peut donc être appelée sans créer d'instance) qui va pouvoir set les attributs de 'Recherche' à l'aide de méthodes dédiées
-    //Elle pourra aussi lancer le constructeur privé de 'Personne'
+    //Elle pourra aussi lancer le constructeur privé de 'Recherche'
     public static class RechercheBuilder {
         
         //Seuls les attributs obligatoires de 'Recherche' sont 'final' ici

@@ -29,11 +29,14 @@ public class JavaBnBData {
 
 
     //Getter de l'instance
+
     public static JavaBnBData getInstance() {
         return instance;
     }
 
+
     //Getters des attributs
+    
     public ArrayList<Hote> getHotes() {
         return hotes;
     }

@@ -33,6 +33,9 @@ public class Utile {
 
     }
 
+
+    //Constructeur qui supprime l'accès au constructeur par défaut 
+    // et qui est 'private' pour qu'il soit impossible de créer une instance de cette classe.
     private Utile(){}
 
 }

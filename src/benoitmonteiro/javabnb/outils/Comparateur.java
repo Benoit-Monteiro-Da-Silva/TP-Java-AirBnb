@@ -1,6 +1,7 @@
 package benoitmonteiro.javabnb.outils;
 
-//Classe générique
+//Classe générique : applique des méthodes sur des objets de classe quelconque "T" 
+// (mais qui ici doivent tout de même avoir l'interface "Comparable")
 public class Comparateur <T extends Comparable> {
 
     private final T obj1;
